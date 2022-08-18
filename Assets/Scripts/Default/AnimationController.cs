@@ -12,20 +12,7 @@ public class AnimationController : MonoBehaviour
     {
         animator = GetComponent<Animator>();
     }
-    private void Update()
-    {
-        // if (LookTarget)
-        // {
 
-        // }
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            // Throw();
-            // animator.speed += 0.1f;
-            SetThrowSpeed(5);
-        }
-
-    }
     public void SetXY(float x, float y)
     {
         animator.SetFloat("X", x);
@@ -41,18 +28,10 @@ public class AnimationController : MonoBehaviour
     {
         OnAttackEvent?.Invoke(this, EventArgs.Empty);
     }
-    public void SetThrowSpeed(float speed)
-    {
-        animator.SetFloat("throwSpeed", speed);
-    }
 
     internal void SetSpeed(float value)
     {
         animator.SetFloat("speed", value);
-    }
-    public void Throw()
-    {
-        animator.SetTrigger("throw");
     }
     public void Die()
     {

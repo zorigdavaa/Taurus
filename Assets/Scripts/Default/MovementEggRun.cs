@@ -104,8 +104,8 @@ public class MovementEggRun : Mb
             afterGoAction = null;
         }
         afterGoAction?.Invoke();
-        // animationController.SetSpeed(0);
-        animationController.SetXY(0, 0);
+        animationController.SetSpeed(0);
+        // animationController.SetXY(0, 0);
         // path = null;
         currentWaypoint = 0;
     }
@@ -180,7 +180,7 @@ public class MovementEggRun : Mb
                 Vector3 targetDirection = (transform.position - targetPos.normalized).normalized;
                 float Y = Vector3.Dot(transform.forward, WorldDirection);
                 float X = Vector3.Dot(transform.right, WorldDirection);
-                animationController.SetXY(X, Y);
+                // animationController.SetXY(X, Y);
                 // transform.LookAt(targetPos);
                 Quaternion targetRotation = Quaternion.LookRotation(targetPos - transform.position);
                 transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, 0.3f);
@@ -192,7 +192,7 @@ public class MovementEggRun : Mb
                 {
                     transform.rotation = Quaternion.LookRotation(WorldDirection);
                 }
-                animationController.SetXY(0, 1);
+                // animationController.SetXY(0, 1);
                 rb.MovePosition(rb.position + transform.forward * speed * Time.deltaTime);
             }
 

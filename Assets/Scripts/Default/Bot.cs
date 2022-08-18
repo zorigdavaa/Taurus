@@ -13,7 +13,7 @@ public class Bot : Character
     {
         Target = FindObjectOfType<Player>().transform;
         movement.GoToPosition(Target);
-        animationController.Set8WayLayerWeight(false);
+        // animationController.Set8WayLayerWeight(false);
         animationController.OnAttackEvent += OnAttack;
     }
 
@@ -53,13 +53,4 @@ public class Bot : Character
     //         TakeDamage(-60);
     //     }
     // }
-    public override void Die()
-    {
-        base.Die();
-        // rb.isKinematic = true;
-        FindObjectOfType<Player>().IncreaseKillCount();
-    }
-
-
-
 }

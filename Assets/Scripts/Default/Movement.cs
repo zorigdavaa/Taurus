@@ -43,7 +43,7 @@ public class Movement : Mb
     public void SetSpeed(float percent)
     {
         Speed = MaxSpeed * percent;
-        // animationController.SetSpeed(Speed / MaxSpeed);
+        animationController.SetSpeed(Speed / MaxSpeed);
     }
     public float GetSpeed()
     {
