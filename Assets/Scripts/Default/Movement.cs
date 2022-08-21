@@ -128,10 +128,10 @@ public class Movement : Mb
 
     public void ClampPosition()
     {
-        if (transform.position.x <= -4.9f || transform.position.x >= 4.9f)
+        if (transform.position.x <= -4.5f || transform.position.x >= 4.5f)
         {
             var pos = rb.position;
-            pos.x = Mathf.Clamp(rb.position.x, -4.9f, 4.9f);
+            pos.x = Mathf.Clamp(rb.position.x, -4.5f, 4.5f);
             rb.position = pos;
         }
     }
@@ -144,15 +144,27 @@ public class Movement : Mb
 
         // pos.x = rb.position.x + horizontalSpeed * Time.fixedDeltaTime * HorizontalInput;
         // rb.position = pos;
-
-        Vector3 movementDirection = new Vector3(HorizontalInput, 0, 0);
-        movementDirection.Normalize();
-        if (movementDirection != Vector3.zero)
+        if (HorizontalInput != 0)
         {
-            Quaternion toRotation = Quaternion.LookRotation(movementDirection, Vector3.up);
+            Vector3 movementDirection = HorizontalInput > 0 ? new Vector3(0, 70, 0) : new Vector3(0, -70, 0);
+            Quaternion toRotation = Quaternion.Euler(movementDirection);
+            // print(toRotation.eulerAngles);
             // pointer.transform.rotation = Quaternion.RotateTowards(pointer.transform.rotation, toRotation, rotationSpeed);
             transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed);
+
         }
+
+        // Vector3 movementDirection = new Vector3(HorizontalInput, 0, 0);
+        // movementDirection.Normalize();
+        // if (movementDirection != Vector3.zero)
+        // {
+        //     movementDirection.x = Mathf.Clamp(movementDirection.x, -0.4f, 0.4f);
+        //     Quaternion toRotation = Quaternion.LookRotation(movementDirection, Vector3.up);
+        //     print(toRotation.eulerAngles);
+        //     // pointer.transform.rotation = Quaternion.RotateTowards(pointer.transform.rotation, toRotation, rotationSpeed);
+        //     transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed);
+
+        // }
     }
 
     bool IsGrounded()

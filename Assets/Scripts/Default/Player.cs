@@ -9,6 +9,7 @@ using UnityEngine.Pool;
 
 public class Player : Character
 {
+    [SerializeField] Transform Horn;
     CameraController cameraController;
     SoundManager soundManager;
     UIBar bar;
