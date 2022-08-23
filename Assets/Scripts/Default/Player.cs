@@ -40,7 +40,6 @@ public class Player : Character
         {
             // inventory.AddInventory(collect.gameObject);
             Horn.localScale += Vector3.one;
-            print("ss");
         }
     }
     public override void Die()
