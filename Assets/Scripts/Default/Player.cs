@@ -38,7 +38,9 @@ public class Player : Character
         Collect collect = other.GetComponent<Collect>();
         if (collect)
         {
-            inventory.AddInventory(collect.gameObject);
+            // inventory.AddInventory(collect.gameObject);
+            Horn.localScale += Vector3.one;
+            print("ss");
         }
     }
     public override void Die()
