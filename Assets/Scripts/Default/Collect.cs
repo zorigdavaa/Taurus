@@ -5,7 +5,16 @@ using UnityEngine;
 
 public class Collect : MonoBehaviour
 {
+    public CollectType type;
     Color _color;
+    private void Start()
+    {
+        foreach (Transform child in transform)
+        {
+            child.gameObject.SetActive(false);
+        }
+        transform.GetChild((int)type).gameObject.SetActive(true);
+    }
 
     public Color GetColor()
     {
@@ -42,4 +51,8 @@ public class Collect : MonoBehaviour
     {
         GetComponent<Collider>().enabled = false;
     }
+}
+public enum CollectType
+{
+    Poop, Flower
 }
