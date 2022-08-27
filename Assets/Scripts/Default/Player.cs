@@ -38,8 +38,20 @@ public class Player : Character
         Collect collect = other.GetComponent<Collect>();
         if (collect)
         {
+            if (collect.type == CollectType.Flower)
+            {
+                Horn.localScale += Vector3.one * 0.2f;
+            }
+            else
+            {
+                Horn.localScale += -Vector3.one * 0.2f;
+                if (Horn.localScale.x < 0)
+                {
+                    Horn.localScale = Vector3.zero;
+                }
+            }
             // inventory.AddInventory(collect.gameObject);
-            Horn.localScale += Vector3.one;
+            Destroy(collect.gameObject);
         }
     }
     public override void Die()
