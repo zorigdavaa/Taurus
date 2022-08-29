@@ -9,9 +9,9 @@ namespace ZPackage
 {
     public class LevelSpawner : GenericSingleton<LevelSpawner>
     {
-        [SerializeField] List<GameObject> Levels;
-        [SerializeField] GameObject Spikes;
-        [SerializeField] GameObject Scores;
+        [SerializeField] List<GameObject> Collects;
+        [SerializeField] List<GameObject> Boxes;
+        [SerializeField] GameObject Hana;
         List<Vector3> points;
 
         public void Init()
