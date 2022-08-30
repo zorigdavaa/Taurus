@@ -56,9 +56,11 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _CrackSize: 0.76
     - _Fill: 1
     - _QueueControl: 0
     - _QueueOffset: 0
+    - _add: -0.25
     m_Colors:
     - _CrackColor: {r: 1, g: 0, b: 0, a: 0}
     - _Offset: {r: 0, g: 0, b: 0, a: 0}
