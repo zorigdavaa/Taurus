@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-3262718586357433824
+--- !u!114 &-530362147771768569
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
@@ -20,8 +20,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Crack
-  m_Shader: {fileID: -6465566751694194690, guid: e060f6948c78dd343bd7367fae61adbb,
+  m_Name: Crack1
+  m_Shader: {fileID: -6465566751694194690, guid: 9f188e4525fb06346a3e4359a38bb5e2,
     type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -56,15 +56,13 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _CrackSize: 0.76
-    - _Fill: 1
+    - _CrackSize: 1.28
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _add: -0.25
     m_Colors:
-    - _CrackColor: {r: 1, g: 0.033018887, b: 0.91616, a: 0}
-    - _Offset: {r: 0, g: 0, b: 0, a: 0}
-    - _Tiling: {r: 0.05, g: 0.05, b: 0, a: 0}
-    - _tilingCrack: {r: 2, g: 2, b: 0, a: 0}
-    - _tilingCrack_1: {r: -1, g: -1, b: 0, a: 0}
+    - _CrackColor: {r: 1, g: 0, b: 0, a: 0}
+    - _HolePos: {r: 0.14, g: 0.25, b: 0, a: 0}
+    - _Tiling: {r: 0.04, g: 0.04, b: 0, a: 0}
+    - _offCrack: {r: -1.3, g: -1.3, b: 0, a: 0}
+    - _tileCrack: {r: 2.34, g: 2.33, b: 0, a: 0}
   m_BuildTextureStacks: []
