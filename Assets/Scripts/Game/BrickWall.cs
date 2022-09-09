@@ -19,11 +19,26 @@ public class BrickWall : MonoBehaviour
                 called = true;
                 crackRenderer.gameObject.SetActive(false);
                 GetComponent<Collider>().enabled = false;
+                other.gameObject.GetComponent<Movement>().SetSpeed(1f);
                 foreach (var item in parts)
                 {
                     item.GetComponent<Rigidbody>().isKinematic = false;
                 }
             }
+        }
+    }
+    private void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            other.gameObject.GetComponent<Movement>().SetSpeed(0.5f);
+        }
+    }
+    private void OnCollisionExit(Collision other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            other.gameObject.GetComponent<Movement>().SetSpeed(1f);
         }
     }
 }

@@ -30,7 +30,7 @@ namespace ZPackage
             for (int i = 0; i < v; i++)
             {
                 Instantiate(Hana, new Vector3(0, 0, lastHanaPos), Quaternion.identity, transform);
-                lastHanaPos += 25;
+                lastHanaPos += 35;
             }
         }
         float lastCollect = 15;
@@ -50,7 +50,7 @@ namespace ZPackage
             {
                 int random = Random.Range(0, Boxes.Count);
                 Instantiate(Boxes[random], new Vector3(Random.Range(-2, 2), 0, lastBoxPos), Quaternion.identity, transform);
-                lastBoxPos += 15;
+                lastBoxPos += 10;
             }
         }
 
