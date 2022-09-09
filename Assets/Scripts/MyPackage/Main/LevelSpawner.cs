@@ -20,104 +20,38 @@ namespace ZPackage
         }
         private void Start()
         {
-            // points = PoissonDiscSampling.GeneratePoints(5f, new Vector2(180, 100)).Select(x => (Vector3)x).ToList();
-            // for (int i = 0; i < points.Count; i++)
-            // {
-            //     points[i] += new Vector3(-90, 5);
-            // }
-            // foreach (Transform child in Scores.transform)
-            // {
-            //     int index = Random.Range(0, points.Count);
-            //     child.position = points[index];
-            //     points.RemoveAt(index);
-            // }
-            // foreach (Transform spike in Spikes.transform)
-            // {
-            //     int index = Random.Range(0, points.Count);
-            //     spike.position = points[index];
-            //     points.RemoveAt(index);
-            // }
-
-            // for (int i = 0; i < 100; i++)
-            // {
-            //     Instantiate(Score, new Vector3(Random.Range(-90, 90), Random.Range(1, 15), 0), Quaternion.identity, transform);
-            // }
-            // for (int i = 0; i < 50; i++)
-            // {
-            //     Instantiate(Score, new Vector3(Random.Range(-90, 90), Random.Range(16, 30), 0), Quaternion.identity, transform);
-            // }
-            // for (int i = 0; i < 20; i++)
-            // {
-            //     Instantiate(Score, new Vector3(Random.Range(-90, 90), Random.Range(30, 60), 0), Quaternion.identity, transform);
-            // }
-
-            // foreach (Transform child in Scores.transform)
-            // {
-            //     PutSomeWhere(child);
-            // }
-            // foreach (Transform spike in Spikes.transform)
-            // {
-            //     PutSomeWhere(spike);
-            // }
+            InstantiateHana(5);
+            InstantiateBox(10);
+            InstantiateCollect(10);
         }
-
-        public static void PutSomeWhere(Transform child)
+        float lastHanaPos = 35;
+        private void InstantiateHana(int v)
         {
-            float randamValue = Random.value;
-            if (randamValue < 0.4f)
+            for (int i = 0; i < v; i++)
             {
-                child.transform.position = new Vector3(Random.Range(-90, 90), Random.Range(10, 25), 0);
-            }
-            else if (randamValue < 0.7f)
-            {
-                child.transform.position = new Vector3(Random.Range(-80, 80), Random.Range(25, 55), 0);
-            }
-            else if (randamValue < 0.9f)
-            {
-                child.transform.position = new Vector3(Random.Range(-70, 70), Random.Range(55, 100), 0);
-            }
-            else
-            {
-                child.transform.position = new Vector3(Random.Range(-60, 60), Random.Range(1, 10), 0);
+                Instantiate(Hana, new Vector3(0, 0, lastHanaPos), Quaternion.identity, transform);
+                lastHanaPos += 25;
             }
         }
-        public static void PutSomeWhere(Transform child, int wait)
+        float lastCollect = 15;
+        private void InstantiateCollect(int v)
         {
-            NewMethod();
-
-            async void NewMethod()
+            for (int i = 0; i < v; i++)
             {
-                await Task.Delay(wait);
-
-                float randamValue = Random.value;
-                if (randamValue < 0.4f)
-                {
-                    child.transform.position = new Vector3(Random.Range(-90, 90), Random.Range(10, 25), 0);
-                }
-                else if (randamValue < 0.7f)
-                {
-                    child.transform.position = new Vector3(Random.Range(-80, 80), Random.Range(25, 55), 0);
-                }
-                else if (randamValue < 0.9f)
-                {
-                    child.transform.position = new Vector3(Random.Range(-70, 70), Random.Range(55, 100), 0);
-                }
-                else
-                {
-                    child.transform.position = new Vector3(Random.Range(-60, 60), Random.Range(1, 10), 0);
-                }
+                int random = Random.Range(0, Collects.Count);
+                Instantiate(Collects[random], new Vector3(0, 0, lastCollect), Quaternion.identity, transform);
+                lastCollect += 20;
             }
         }
-        private void OnDrawGizmos()
+        float lastBoxPos = 5f;
+        private void InstantiateBox(int v)
         {
-            if (points != null)
+            for (int i = 0; i < v; i++)
             {
-                foreach (var item in points)
-                {
-                    Gizmos.DrawSphere(item, 1);
-                }
+                int random = Random.Range(0, Boxes.Count);
+                Instantiate(Boxes[random], new Vector3(Random.Range(-2, 2), 0, lastBoxPos), Quaternion.identity, transform);
+                lastBoxPos += 15;
             }
-
         }
 
     }

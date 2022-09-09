@@ -63,7 +63,7 @@ Material:
     - _CrackCenter: {r: 0.74, g: 0.75, b: 0, a: 0}
     - _CrackColor: {r: 1, g: 0, b: 0, a: 0}
     - _HolePos: {r: 0.14, g: 0.25, b: 0, a: 0}
-    - _Tiling: {r: 0.04, g: 0.04, b: 0, a: 0}
+    - _Tiling: {r: 4, g: 4, b: 0, a: 0}
     - _offCrack: {r: -1.25, g: -1.25, b: 0, a: 0}
     - _tileCrack: {r: 2.33, g: 2.29, b: 0, a: 0}
   m_BuildTextureStacks: []
