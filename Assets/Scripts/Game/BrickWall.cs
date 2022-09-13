@@ -17,16 +17,36 @@ public class BrickWall : MonoBehaviour
             if (crackPercent > 0.4f && !called)
             {
                 called = true;
-                crackRenderer.gameObject.SetActive(false);
-                GetComponent<Collider>().enabled = false;
                 other.gameObject.GetComponent<Movement>().SetSpeed(1f);
-                foreach (var item in parts)
-                {
-                    item.GetComponent<Rigidbody>().isKinematic = false;
-                }
+                CrackAll();
             }
         }
     }
+
+    private void CrackAll()
+    {
+        Crack();
+        Collider[] nearObjs = Physics.OverlapBox(transform.position, new Vector3(10, 1, 1), Quaternion.identity);
+        foreach (var item in nearObjs)
+        {
+            BrickWall wall = item.GetComponent<BrickWall>();
+            if (wall)
+            {
+                wall.Crack();
+            }
+        }
+    }
+    public void Crack()
+    {
+        crackRenderer.gameObject.SetActive(false);
+        GetComponent<Collider>().enabled = false;
+
+        foreach (var item in parts)
+        {
+            item.GetComponent<Rigidbody>().isKinematic = false;
+        }
+    }
+
     private void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.CompareTag("Player"))
